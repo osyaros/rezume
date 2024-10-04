@@ -1,0 +1,22 @@
+.backBtn {
+	position: absolute;
+	top: 68px;
+	left: 87px;
+	z-index: 3;
+	display: flex;
+	width: 75px;
+	height: 75px;
+	padding: 15px;
+	justify-content: start; /* Содержимое по центру */
+	align-items: center;
+	border-radius: 75px;
+	background: rgba(255, 255, 255, 0.1);
+	transition: all 1s ease; /* Плавный переход для всех свойств */
+}
+
+.backBtn:hover {
+	position: absolute;
+	width: 140px; /* Ширина при наведении */
+	margin-left: -35px; /* Сдвиг влево для достижения нужного эффекта */
+	justify-content: start; /* Содержимое по левому краю */
+}

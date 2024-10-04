@@ -1,0 +1,65 @@
+.expCard {
+	display: flex;
+	width: 429px;
+	padding: 25px 20px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+	border-radius: 28.567px;
+	border: 0.985px solid rgba(255, 255, 255, 0);
+	background: linear-gradient(131deg, rgba(255, 255, 255, 0.24) 2.73%, rgba(255, 255, 255, 0.12) 97.27%);
+	backdrop-filter: blur(28.399999618530273px);
+    .expCard__img {
+        display: inline-block;
+        position: relative;    
+        line-height: 0;
+        overflow: hidden;
+        border-radius: 20px;
+		max-height: 300px;
+		width: 100%;
+		img {
+			max-height: 300px;
+			object-fit: cover;
+			width: 100%;
+		}
+    }
+	.expCard__img:after {
+        content: "";
+        display: block;    
+        width: 100%;
+        height: 100%;    
+        position: absolute;
+        top: 0;      
+        left: 0;   
+        background: transparent;
+        background-image: linear-gradient(180deg, rgba(122, 100, 178, 0.00) 2.34%, rgba(168, 68, 212, 0.35) 58.88%, rgba(41, 10, 125, 0.60) 100%);
+		
+	}
+	.expCard__info {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+		align-self: stretch;
+		h3 {
+			color: #fff;
+			font-size: 26px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 100%; /* 26px */
+		}
+		span {
+			color: rgba(255, 255, 255, 0.64);
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 100%; /* 16px */
+		}
+		.badges{
+			display: flex;
+			gap:10px;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+}
