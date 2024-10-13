@@ -33,7 +33,7 @@ const CategoryPage: FC = () => {
 					</div>
 				</div>
 				<div className={cls.expCards}>
-					{data.map((item, index) => (
+					{data &&data.map((item, index) => (
 						<ExperienceCard key={index} type={category as string} name={item.name} />
 					))}
 				</div>

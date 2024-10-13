@@ -1,9 +1,11 @@
 .expCard {
 	display: flex;
-	width: 429px;
+	min-width: 350px;
+	max-width: 450px;
 	padding: 25px 20px;
 	flex-direction: column;
 	align-items: flex-start;
+	font-family: "Suisse Intl";
 	gap: 20px;
 	border-radius: 28.567px;
 	border: 0.985px solid rgba(255, 255, 255, 0);
@@ -62,4 +64,10 @@
 			flex-wrap: wrap;
 		}
 	}
+}
+@media only screen and (max-width: 480px){
+	.expCard {
+		width: 100%;
+	}
+	
 }

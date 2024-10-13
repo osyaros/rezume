@@ -20,3 +20,9 @@
 	margin-left: -35px; /* Сдвиг влево для достижения нужного эффекта */
 	justify-content: start; /* Содержимое по левому краю */
 }
+@media only screen and (max-width: 480px){
+	.backBtn{
+		display:none;
+	}
+	
+}

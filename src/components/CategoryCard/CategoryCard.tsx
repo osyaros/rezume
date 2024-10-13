@@ -24,7 +24,7 @@ const CategoryCard = forwardRef<HTMLDivElement, CategoryCardProps>(({ subname, n
       <div className={cls.cardFooter}>
         <span className={cls.subname}>{subname}</span>
         <button className={cls.detailsBtn} role='link'>
-          Подробнее <Icon id="arrow-right" width={24} height={24} />
+          Подробнее <Icon id="arrowRight" width={24} height={24} />
         </button>
       </div>
     </div>

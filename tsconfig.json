@@ -17,15 +17,12 @@
     "paths": {
       "@/components/*": ["./src/components/*"],
       "@/pages/*": ["./src/pages/*"],
-      "@/ui/*": ["./src/components/ui/*"],
+      "@/ui/*": ["./src/ui/*"],
       "@/store/*": ["./src/store/*"],
       "@/api/*": ["./src/store/api/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/translations/*": ["./src/data/*"],
-      "@/componentsGame/*": ["./src/components/pages/Games/components/*"],
-      "@/uiGame/*": ["./src/components/pages/Games/components/ui/*"],
-
     },
 
     /* Linting */

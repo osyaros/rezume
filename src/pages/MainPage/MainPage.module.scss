@@ -1,17 +1,17 @@
 .mainpage {
 	background-color: var(--background-color);
 	width: 100%;
-	height: 100vh;
 	padding: 28px 36px 28px 30px;
 	font-family: Inter;
 	display: flex;
 	flex-direction: row;
 	gap: 45px;
+	position: relative;
 	aside {
 		display: flex;
 		width: 23vw;
 		flex-direction: column;
-		gap: 6vh;
+		gap: 5vh;
 		align-items: flex-start;
 		flex-shrink: 0;
 		height: 100%;
@@ -67,9 +67,6 @@
 					line-height: 200%; /* 36px */
 				}
 			}
-			p {
-				width: 100%;
-			}
 			p > a {
 				color: var(--color-sub);
 				font-size: 18px;
@@ -88,16 +85,41 @@
 		height: 100%;
 		overflow-y: scroll;
 	}
-	.categoryCards::-webkit-scrollbar-thumb {
-		background-color: #333;
-		border-radius: 5px;
-		
+	
+	.categoryCards::-webkit-scrollbar{
+		display: none;
 	}
-	.categoryCards::-webkit-scrollbar {
-		width: 7px;
-		background-color: #797979;
-		border-radius: 5px;
-		position: relative;
-		margin-left: 20px;
+}
+@media only screen and (max-width: 480px){
+	.mainpage {
+		flex-direction: column;
+		padding: 20px;
+		aside{
+			width: 100%;
+			height: auto;
+		}
+		.categoryCards{
+			display: flex;
+			flex-direction: column;
+			gap: 50px;
+			width: 100%;
+			overflow-y: scroll;
+			
+		}
 	}
+	.categoryCards::-webkit-scrollbar{
+		display: none;
+	}
+}
+.mainpage::-webkit-scrollbar-thumb {
+	background-color: #333;
+	border-radius: 5px;
+	
+}
+.mainpage::-webkit-scrollbar {
+	width: 7px;
+	background-color: #797979;
+	border-radius: 5px;
+	position: relative;
+	margin-left: 20px;
 }

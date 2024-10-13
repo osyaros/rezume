@@ -18,7 +18,7 @@ const routes = createBrowserRouter([
 		element: <CategoryPage />
 	},
 	{
-		path: '/:category/:experience',
+		path: '/:category/:name',
 		element: <DetailPage />
 	}
 ]);

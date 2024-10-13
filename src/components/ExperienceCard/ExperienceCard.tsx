@@ -44,7 +44,7 @@ const ExperienceCard: FC<ExperienceCardProps> = ({ type, name }) => {
   }, [type, name]);
 
   return (
-    <article className={cls.expCard} onClick={()=>navigate(`/${type}/${name}`)}>
+    <article className={cls.expCard} onClick={()=>navigate(`/${type}/${encodeURIComponent(name)}`)}>
       <div className={cls.expCard__img}>
         <img src={`/img/experience/${type}/${name}/main.png`} alt={`${name} image`} />
       </div>

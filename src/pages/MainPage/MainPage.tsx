@@ -23,7 +23,7 @@ export const MainPage: FC = () => {
 						Ярослав <br />
 						Осокин
 					</span>
-					<h4>Frontend разработчик</h4>
+					<h4>Frontend developer</h4>
 				</article>
 				<NavBar
 					scrollToProjects={() => scrollToRef(projectsRef)}
