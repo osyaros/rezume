@@ -80,8 +80,8 @@
                 "position": "Frontend Developer",
                 "time": "2024 July - October",
                 "stack" : ["React", "TS", "SCSS", "Redux", "RTK Query", "Phaser"],
-                "company_descr": "Криптоскам",
-                "solveDescr": ""
+                "company_descr": "DeTOC — венчурный билдер WEB2 и WEB3 проектов. Опытнейшая команда, в которой состоял я, занималась созданием инновационных Didgital проектов, интегрированных в Telegram Mini Apps.",
+                "solveDescr": "Doggers - Telegram Mini App, созданное для монеты  DOGG TON, включающее в себе большой функционал, начиная от кастюмизции персонажей, продолжая выполнением заданий, заканчивая встроенной игрой на библиотеке PhaserJS."
             }
         ]
     },
