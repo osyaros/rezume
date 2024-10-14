@@ -8,20 +8,25 @@ import ThemeProvider from './providers/ThemeProvider';
 import CategoryPage from '@/pages/CategoryPage/CategoryPage';
 import DetailPage from '@/pages/DetailPage/DetailPage';
 
-const routes = createBrowserRouter([
+const routes = createBrowserRouter(
+	[
+		{
+			path: '/',
+			element: <MainPage />
+		},
+		{
+			path: '/:category',
+			element: <CategoryPage />
+		},
+		{
+			path: '/:category/:name',
+			element: <DetailPage />
+		}
+	],
 	{
-		path: '/',
-		element: <MainPage />
-	},
-	{
-		path: '/:category',
-		element: <CategoryPage />
-	},
-	{
-		path: '/:category/:name',
-		element: <DetailPage />
+		basename: '/rezume' // замените на ваш базовый путь
 	}
-]);
+);
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
 		<ThemeProvider>
