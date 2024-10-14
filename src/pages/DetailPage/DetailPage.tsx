@@ -55,7 +55,7 @@ const DetailPage: FC = () => {
 				<div className={cls.photoCaption}>
 					<h4 className={cls.caption}>{subText}</h4>
 					<div className={cls.expCard__img}>
-						<img src={`${process.env.PUBLIC_URL}/img/experience/${decodedCategory}/${decodedName}/main.png`} alt={`${decodedName} image`} />
+						<img src={`/img/experience/${decodedCategory}/${decodedName}/main.png`} alt={`${decodedName} image`} />
 					</div>
 				</div>
 				<div className={cls.info}>
@@ -70,7 +70,7 @@ const DetailPage: FC = () => {
 					<div className={cls.badges}>{badges.length > 0 && badges.map((badge, index) => <Badge bigBorder key={index} text={badge} />)}</div>
 					<p className={cls.text}>{experience?.solveDescr}</p>
 					{repo && <Badge text="Repository" href={repo} effect bigBorder/>}
-                    <img src={`${process.env.PUBLIC_URL}/img/experience/${decodedCategory}/${decodedName}/sub.png`} className={cls.subPhoto} />
+                    <img src={`/img/experience/${decodedCategory}/${decodedName}/sub.png`} className={cls.subPhoto} />
 				</div>
 			</div>
 

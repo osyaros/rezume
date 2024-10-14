@@ -10,7 +10,7 @@ interface IconProps {
 const Icon: FC<IconProps> = ({ className, id, width, height }) => {
 	return (
 		<svg className={className} width={width} height={height}>
-			<use href={`${process.env.PUBLIC_URL}/img/icons.svg#${id}`} />
+			<use href={`/img/icons.svg#${id}`} />
 		</svg>
 	);
 };
