@@ -22,10 +22,7 @@ const routes = createBrowserRouter(
 			path: '/:category/:name',
 			element: <DetailPage />
 		}
-	],
-	{
-		basename: '/rezume' // замените на ваш базовый путь
-	}
+	]
 );
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
