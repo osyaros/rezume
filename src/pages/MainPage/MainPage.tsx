@@ -18,7 +18,7 @@ export const MainPage: FC = () => {
 		<div className={cls.mainpage}>
 			<aside>
 				<article className={cls.person}>
-					<img src="/img/mainpage/person.png" className={cls.person__img} />
+					<img src="${process.env.PUBLIC_URL}/img/mainpage/person.png" className={cls.person__img} />
 					<span className={cls.name}>
 						Ярослав <br />
 						Осокин

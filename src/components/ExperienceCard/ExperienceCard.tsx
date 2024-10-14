@@ -50,7 +50,7 @@ const ExperienceCard: FC<ExperienceCardProps> = ({ type, name }) => {
   return (
     <article className={cls.expCard} onClick={handleClick}>
       <div className={cls.expCard__img}>
-        <img src={`/img/experience/${type}/${name}/main.png`} alt={`${name} image`} />
+        <img src={`${process.env.PUBLIC_URL}/img/experience/${type}/${name}/main.png`} alt={`${name} image`} />
       </div>
       <div className={cls.expCard__info}>
         <h3>{name}</h3>
