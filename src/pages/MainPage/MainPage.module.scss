@@ -1,20 +1,27 @@
 .mainpage {
 	background-color: var(--background-color);
 	width: 100%;
+	height: 100vh; /* Занимаем всю высоту экрана */
 	padding: 28px 36px 28px 30px;
 	font-family: Inter;
 	display: flex;
 	flex-direction: row;
 	gap: 45px;
 	position: relative;
+
 	aside {
+		position: fixed; /* Оставляем фиксированным */
+		top: 28px;
+		left: 0;
 		display: flex;
 		width: 23vw;
 		flex-direction: column;
 		gap: 5vh;
 		align-items: flex-start;
+		justify-self: start;
 		flex-shrink: 0;
-		height: 100%;
+		height: 100vh; /* Полная высота экрана */
+
 		.person {
 			display: flex;
 			width: 100%;
@@ -22,11 +29,13 @@
 			flex-direction: column;
 			justify-content: space-between;
 			align-items: flex-start;
+
 			.person__img {
 				width: 91px;
 				height: 91px;
 				border-radius: 91px;
 			}
+
 			.name {
 				color: var(--color-main);
 				font-family: Inter;
@@ -35,6 +44,7 @@
 				font-weight: 600;
 				line-height: 120%; /* 48px */
 			}
+
 			h4 {
 				color: var(--color-sub);
 				font-family: Inter;
@@ -44,21 +54,23 @@
 				line-height: 200%; /* 36px */
 			}
 		}
+
 		.contacts {
 			display: flex;
 			width: 100%;
 			flex-direction: column;
 			align-items: flex-start;
 			padding-right: 27px;
+
 			span,
 			a {
 				display: flex;
 				justify-content: flex-start;
 				align-items: start;
 				width: 100%;
-
 				padding-bottom: 11px;
 				border-bottom: 1px solid #333;
+
 				h3 {
 					color: var(--color-sub);
 					font-size: 18px;
@@ -67,6 +79,7 @@
 					line-height: 200%; /* 36px */
 				}
 			}
+
 			p > a {
 				color: var(--color-sub);
 				font-size: 18px;
@@ -77,49 +90,45 @@
 			}
 		}
 	}
+
 	.categoryCards {
 		display: flex;
 		flex-direction: column;
 		gap: 50px;
-		width: 100%;
-		height: 100%;
-		overflow-y: scroll;
+		width: 77vw;
+		height: 100vh; /* Занимаем высоту экрана */
+		overflow-y: auto; /* Добавляем прокрутку */
+		margin-left: 23vw; /* Отодвигаем вправо, чтобы не пересекалось с aside */
+		padding-right: 20px;
 	}
 	
-	.categoryCards::-webkit-scrollbar{
+	.categoryCards::-webkit-scrollbar {
 		display: none;
 	}
 }
-@media only screen and (max-width: 480px){
+
+@media only screen and (max-width: 480px) {
 	.mainpage {
 		flex-direction: column;
 		padding: 20px;
-		aside{
+		height: auto; /* Убираем фиксированную высоту */
+		overflow-y: auto; /* Добавляем скроллинг для всей страницы */
+
+		aside {
 			width: 100%;
-			height: auto;
+			height: auto; /* Снимаем фиксированную высоту */
+			position: relative; /* Отменяем фиксированное положение для мобильных */
+			gap: 20px; /* Увеличим немного расстояние между элементами */
 		}
-		.categoryCards{
+
+		.categoryCards {
 			display: flex;
 			flex-direction: column;
 			gap: 50px;
 			width: 100%;
-			overflow-y: scroll;
-			
+			overflow-y: visible; /* Снимаем скроллинг внутри карточек */
+			margin-left: 0;
+			padding: 0;
 		}
 	}
-	.categoryCards::-webkit-scrollbar{
-		display: none;
-	}
-}
-.mainpage::-webkit-scrollbar-thumb {
-	background-color: #333;
-	border-radius: 5px;
-	
-}
-.mainpage::-webkit-scrollbar {
-	width: 7px;
-	background-color: #797979;
-	border-radius: 5px;
-	position: relative;
-	margin-left: 20px;
 }

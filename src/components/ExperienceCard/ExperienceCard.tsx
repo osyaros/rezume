@@ -13,38 +13,42 @@ const ExperienceCard: FC<ExperienceCardProps> = ({ type, name }) => {
   const [subText, setSubText] = useState('');
   const [badgeText, setBadgeText] = useState<string[]>([]); 
   const navigate = useNavigate();
+  const [handleClick, setHandleClick] = useState<() => void>(() => {});
 
   useEffect(() => {
     let text = '';
     let badges: string[] = [];
+    let clickHandler = () => {};
 
     if (type === 'hackathons') {
       const hackItem = dataExperience.hackathons.data.find((item) => item.name === name);
-      
       if (hackItem) {
         text = `${hackItem.place} место · ${hackItem.teamName} · ${hackItem.time}`;
         badges = [hackItem.case];
+        clickHandler = () => navigate(`/hackathons/${encodeURIComponent(name)}`);
       }
     } else if (type === 'workplaces') {
       const workItem = dataExperience.workplaces.data.find((item) => item.name === name);
-      console.log(workItem);
-      
       if (workItem) {
-        text = workItem.position || '';
+        text = `${workItem.position || ''} · ${workItem.time || ''}`;
         badges = workItem.stack || []; 
-        
+        clickHandler = () => navigate(`/workplaces/${encodeURIComponent(name)}`);
       }
     } else if (type === 'projects') {
       const projectItem = dataExperience.projects.data.find((item) => item.name === name);
-      text = projectItem?.position || '';
+      if (projectItem) {
+        text = projectItem.position || '';
+        clickHandler = () => navigate(`/projects/${encodeURIComponent(name)}`);
+      }
     }
 
+    setHandleClick(() => clickHandler);
     setSubText(text);
     setBadgeText(badges); 
-  }, [type, name]);
+  }, [type, name, navigate]);
 
   return (
-    <article className={cls.expCard} onClick={()=>navigate(`/${type}/${encodeURIComponent(name)}`)}>
+    <article className={cls.expCard} onClick={handleClick}>
       <div className={cls.expCard__img}>
         <img src={`/img/experience/${type}/${name}/main.png`} alt={`${name} image`} />
       </div>
@@ -56,7 +60,6 @@ const ExperienceCard: FC<ExperienceCardProps> = ({ type, name }) => {
             <Badge key={index} text={badge} />
           ))}
         </div>
-        
       </div>
     </article>
   );

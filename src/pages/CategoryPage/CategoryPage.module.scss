@@ -18,12 +18,11 @@
         gap: 103px;
         align-items: flex-start;
         z-index: 2;
-
+        width: 1000px;
         .category_info {
             display: flex;
             flex-direction: column;
             gap: 103px;
-
             .category_title {
                 display: flex;
                 flex-direction: column;
@@ -38,6 +37,7 @@
                 }
 
                 h2 {
+                   
                     color: #fff;
                     text-align: center;
                     font-size: 64px;
@@ -47,8 +47,8 @@
             }
 
             .category_descr {
+                width: 100%;
                 display: flex;
-                width: 349px;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 28px;
@@ -58,8 +58,9 @@
                 line-height: 100%; /* 26px */
 
                 span {
+                    width: 100%;
                     color: #737579;
-                    text-align: center;
+                    text-align: start;
                     font-size: 16px;
                     font-weight: 500;
                     line-height: 100%; /* 16px */

@@ -14,7 +14,7 @@ const NavBar: FC<NavBarProps> = ({
 	scrollToHackathons,
 	scrollToTools
 }) => {
-	const [activeItem, setActiveItem] = useState<string>('Проекты');
+	const [activeItem, setActiveItem] = useState<string>('Места работы');
 
 	const handleItemClick = (item: string, scrollFunction: () => void) => {
 		setActiveItem(item);
@@ -24,12 +24,12 @@ const NavBar: FC<NavBarProps> = ({
 	return (
 		<nav className={cls.navbar}>
 			<ol>
-				<li
+				{/* <li
 					onClick={() => handleItemClick('Проекты', scrollToProjects)}
 					className={activeItem === 'Проекты' ? cls.active : ''}
 				>
 					Проекты
-				</li>
+				</li> */}
 				<li
 					onClick={() =>
 						handleItemClick('Места работы', scrollToWorkPlaces)

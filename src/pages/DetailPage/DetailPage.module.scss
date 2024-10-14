@@ -132,13 +132,15 @@
 				font-style: normal;
 				font-weight: 450;
 				line-height: 100%; /* 24px */
-				width: 578px;
+				width: 45vw;
 			}
-			.subPhoto{
+			.subPhoto {
 				position: absolute;
-				right: 60px;
-				top:30px;
-				max-height: 727px;
+				left: 50vw; /* Теперь прижмем фото к правой границе */
+				top: 0px;
+				max-width: 50vw; /* Увеличиваем максимально допустимую ширину в процентах от ширины экрана */
+				width: auto;
+				height: auto;
 				margin-bottom: 40px;
 			}
 		}

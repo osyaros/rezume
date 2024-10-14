@@ -44,7 +44,7 @@ export const MainPage: FC = () => {
 				</div>
 			</aside>
 			<div className={cls.categoryCards}>
-				<CategoryCard name="Проекты" subname="Мои проекты" info="Мои разработки 2023-2024" ref={projectsRef} onClick={() => navigate('/projects')} />
+				{/* <CategoryCard name="Проекты" subname="Мои проекты" info="Мои разработки 2023-2024" ref={projectsRef} onClick={() => navigate('/projects')} /> */}
 				<CategoryCard name="Места работы" subname="Места работы" info="Команды, в которых работал 2023-2024" ref={workPlacesRef} onClick={() => navigate('/workplaces')} />
 				<CategoryCard name="Хакатоны" subname="Хакатоны" info="Призовые на IT соревнованиях 2023-2024" ref={hackathonsRef} onClick={() => navigate('/hackathons')} />
 				<CategoryCard name="Инструменты" subname="Инструменты" info="Frameworks, Libraries" ref={toolsRef} onClick={() => navigate('/tools')} />

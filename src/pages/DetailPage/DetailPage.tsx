@@ -22,28 +22,31 @@ const DetailPage: FC = () => {
 		let nameTheme = '';
 		let themeDescr = '';
 		let repo = '';
+		let stack: string[] = [];
 		if (experience) {
 			if (decodedCategory === 'hackathons' && 'place' in experience && 'caseDescr' in experience && 'repository' in experience) {
 				text = `${experience.place} место · ${experience.teamName} · ${experience.time}`;
 				nameTheme = 'Кейс';
 				themeDescr = experience.caseDescr;
 				repo = experience.repository;
-                
+                stack =experience.stack;
                 
 			} else if (decodedCategory === 'workplaces' && 'position' in experience && 'company_descr' in experience) {
-				text = experience.position || '';
+				text = experience.time || '';
 				nameTheme = 'О компании';
 				themeDescr = experience.company_descr;
+				stack =experience.stack;
 			} else if (decodedCategory === 'projects' && 'position' in experience) {
 				text = experience.position || '';
 				nameTheme = 'О проекте';
+				stack =experience.stack;
 			}
 		}
 		setThemeDescr(themeDescr);
 		setNameTheme(nameTheme);
 		setSubText(text);
 		setRepo(repo);
-		setBadges(experience?.stack || []);
+		setBadges(stack);
 	}, [decodedCategory, name, experience, decodedName, decodedCategory]);
 	return (
 		<div className={cls.detailpage}>
@@ -64,9 +67,9 @@ const DetailPage: FC = () => {
 				</div>
 				<div className={cls.description}>
 					<h3 className={cls.title}>Опыт</h3>
-					<div className={cls.badges}>{badges.length > 0 && badges.map((badge, index) => <Badge key={index} text={badge} />)}</div>
+					<div className={cls.badges}>{badges.length > 0 && badges.map((badge, index) => <Badge bigBorder key={index} text={badge} />)}</div>
 					<p className={cls.text}>{experience?.solveDescr}</p>
-					{repo && <Badge text="Repository" href={repo} />}
+					{repo && <Badge text="Repository" href={repo} effect bigBorder/>}
                     <img src={`/img/experience/${decodedCategory}/${decodedName}/sub.png`} className={cls.subPhoto} />
 				</div>
 			</div>
