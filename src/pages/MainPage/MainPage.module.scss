@@ -112,13 +112,16 @@
 		flex-direction: column;
 		padding: 20px;
 		height: auto; /* Убираем фиксированную высоту */
-		overflow-y: auto; /* Добавляем скроллинг для всей страницы */
+		overflow-y: auto;
+		align-items: start; /* Добавляем скроллинг для всей страницы */
 
 		aside {
 			width: 100%;
 			height: auto; /* Снимаем фиксированную высоту */
 			position: relative; /* Отменяем фиксированное положение для мобильных */
 			gap: 20px; /* Увеличим немного расстояние между элементами */
+			top: inherit;
+			left: inherit;
 		}
 
 		.categoryCards {
