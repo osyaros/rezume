@@ -101,17 +101,31 @@
 				}
 			}
 		}
+
 		.description {
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 20px;
 			position: relative;
-			border-radius: 28.567px;
-			border: 0.985px solid rgba(255, 255, 255, 0);
-			background: linear-gradient(131deg, rgba(255, 255, 255, 0.1) 2.73%, rgba(255, 255, 255, 0) 97.27%);
-			backdrop-filter: blur(28.399999618530273px);
+
 			padding: 60px 0 45px 60px;
+			z-index: 1;
+			background: linear-gradient(131deg, rgba(255, 255, 255, 0.1) 2.73%, rgba(255, 255, 255, 0) 97.27%);
+			border: 0.985px solid rgba(255, 255, 255, 0);
+			border-radius: 28.567px;
+			.backgr {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 28.567px;
+				border: 0.985px solid rgba(255, 255, 255, 0);
+				
+				backdrop-filter: blur(10020120px); // только фон размывается
+				z-index: 0; // размытый фон под содержимым
+			}
 			.title {
 				color: #fff;
 				font-family: 'Suisse Intl';
@@ -119,11 +133,14 @@
 				font-style: normal;
 				font-weight: 500;
 				line-height: 100%; /* 32px */
+				position: relative;
+				z-index: 2;
 			}
 			.badges {
 				display: flex;
 				flex-direction: row;
 				gap: 10px;
+				z-index: 2;
 			}
 			.text {
 				color: rgba(255, 255, 255, 0.78);
@@ -133,6 +150,7 @@
 				font-weight: 450;
 				line-height: 100%; /* 24px */
 				width: 45vw;
+				z-index: 2;
 			}
 			.subPhoto {
 				position: absolute;
@@ -142,92 +160,133 @@
 				width: auto;
 				height: auto;
 				margin-bottom: 40px;
+				z-index: 2;
 			}
 		}
 	}
-	
+
 	.gr1,
-    .gr2, .gr3 {
-        position: absolute;
-        width: 957.456px;
-        height: 980.327px;
-        flex-shrink: 0;
-        z-index: 0;
-        background: radial-gradient(
-            52.76% 100.97% at 77.27% 20.96%,
-            rgba(31, 0, 186, 0.3) 0%,
-            rgba(143, 0, 255, 0.3) 60.5%,
-            rgba(143, 0, 255, 0.12) 100%
-        );
-        filter: blur(168.932px);
-        animation: fadeInMove 6s forwards; /* Обновлено имя анимации */
-    }
+	.gr2,
+	.gr3 {
+		position: absolute;
+		width: 957.456px;
+		height: 980.327px;
+		flex-shrink: 0;
+		z-index: 0;
+		background: radial-gradient(
+			52.76% 100.97% at 77.27% 20.96%,
+			rgba(31, 0, 186, 0.3) 0%,
+			rgba(143, 0, 255, 0.3) 60.5%,
+			rgba(143, 0, 255, 0.12) 100%
+		);
+		filter: blur(168.932px);
+		animation: fadeInMove 6s forwards; /* Обновлено имя анимации */
+	}
 
-    .gr1 {
-        top: -200px; /* Начальная позиция выше экрана */
-        right: -600px; /* Начальная позиция левее экрана */
-        animation: fadeInMove1 6s forwards;
-    }
+	.gr1 {
+		top: -200px; /* Начальная позиция выше экрана */
+		right: -600px; /* Начальная позиция левее экрана */
+		animation: fadeInMove1 6s forwards;
+	}
 
-    .gr2 {
-        top: 1200px; /* Начальная позиция ниже экрана */
-        left: -800px; /* Начальная позиция правее экрана */
-        animation: fadeInMove2 6s forwards;
-    }
-	.gr3{
+	.gr2 {
+		top: 1200px; /* Начальная позиция ниже экрана */
+		left: -800px; /* Начальная позиция правее экрана */
+		animation: fadeInMove2 6s forwards;
+	}
+	.gr3 {
 		bottom: -1200px; /* Начальная позиция ниже экрана */
 		right: -500px; /* Начальная позиция правее экрана */
 		animation: fadeInMove3 6s forwards;
 	}
 }
-
+@media only screen and (max-width: 480px) {
+	.detailpage {
+		padding: 20px;
+		.experience {
+			gap: 50px;
+			.info {
+				flex-direction: column;
+				gap: 30px;
+				.title {
+					font-size: 64px;
+				}
+				
+				.theme {
+					.themeText {
+						font-size: 20px;
+					}
+					.nameTheme{
+						font-size: 28px;
+					}
+				}
+			}
+			.description {
+				padding: 20px 10px;
+				align-items: center;
+				.badges {
+					flex-wrap: wrap;
+				}
+				.text {
+					width: 100%;
+					font-size: 16px;
+				}
+				.subPhoto {
+					position: inherit;
+					left: inherit;
+					max-width: 100%;
+					margin-bottom: inherit;
+				}
+			}
+		}
+	}
+}
 @keyframes fadeInMove1 {
-    0% {
-        opacity: 0;
-        transform: translate(0, 0); /* Исходное положение */
-    }
-    50% {
-        opacity: 0.5; /* Прозрачность на половине пути */
-        transform: translate(-50px, -50px); /* Движение вправо и вверх */
-    }
-    100% {
-        opacity: 1; /* Конечная прозрачность */
-        transform: translate(-100px, -100px); /* Движение вправо и вверх */
-    }
+	0% {
+		opacity: 0;
+		transform: translate(0, 0); /* Исходное положение */
+	}
+	50% {
+		opacity: 0.5; /* Прозрачность на половине пути */
+		transform: translate(-50px, -50px); /* Движение вправо и вверх */
+	}
+	100% {
+		opacity: 1; /* Конечная прозрачность */
+		transform: translate(-100px, -100px); /* Движение вправо и вверх */
+	}
 }
 
 @keyframes fadeInMove2 {
-    0% {
-        opacity: 0;
-        transform: translate(0, 0); /* Исходное положение */
-    }
-    50% {
-        opacity: 0.5; /* Прозрачность на половине пути */
-        transform: translate(75px, -50px); /* Движение вправо и вверх */
-    }
-    100% {
-        opacity: 1; /* Конечная прозрачность */
-        transform: translate(150px, -100px); /* Движение вправо и вверх */
-    }
+	0% {
+		opacity: 0;
+		transform: translate(0, 0); /* Исходное положение */
+	}
+	50% {
+		opacity: 0.5; /* Прозрачность на половине пути */
+		transform: translate(75px, -50px); /* Движение вправо и вверх */
+	}
+	100% {
+		opacity: 1; /* Конечная прозрачность */
+		transform: translate(150px, -100px); /* Движение вправо и вверх */
+	}
 }
 @keyframes fadeInMove3 {
-    0% {
-        opacity: 0;
-        transform: translate(0, 0); /* Исходное положение */
-    }
-    50% {
-        opacity: 0.5; /* Прозрачность на половине пути */
-        transform: translate(-75px, -50px); /* Движение вправо и вверх */
-    }
-    100% {
-        opacity: 1; /* Конечная прозрачность */
-        transform: translate(-150px, -100px); /* Движение вправо и вверх */
-    }
+	0% {
+		opacity: 0;
+		transform: translate(0, 0); /* Исходное положение */
+	}
+	50% {
+		opacity: 0.5; /* Прозрачность на половине пути */
+		transform: translate(-75px, -50px); /* Движение вправо и вверх */
+	}
+	100% {
+		opacity: 1; /* Конечная прозрачность */
+		transform: translate(-150px, -100px); /* Движение вправо и вверх */
+	}
 }
 .detailpage::-webkit-scrollbar-thumb {
 	background-color: #333;
 	border-radius: 5px;
-	
 }
 .detailpage::-webkit-scrollbar {
 	width: 7px;

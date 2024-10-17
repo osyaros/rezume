@@ -69,8 +69,9 @@ const DetailPage: FC = () => {
 					<h3 className={cls.title}>Опыт</h3>
 					<div className={cls.badges}>{badges.length > 0 && badges.map((badge, index) => <Badge bigBorder key={index} text={badge} />)}</div>
 					<p className={cls.text}>{experience?.solveDescr}</p>
-					{repo && <Badge text="Repository" href={repo} effect bigBorder/>}
                     <img src={`/img/experience/${decodedCategory}/${decodedName}/sub.png`} className={cls.subPhoto} />
+					{repo && <Badge text="Repository" href={repo} effect bigBorder/>}
+					<div className={cls.backgr}/>
 				</div>
 			</div>
 
