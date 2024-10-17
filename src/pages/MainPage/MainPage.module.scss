@@ -111,10 +111,9 @@
 	.mainpage {
 		flex-direction: column;
 		padding: 20px;
-		height: auto; /* Убираем фиксированную высоту */
+		height: 100vh; /* Убираем фиксированную высоту */
 		overflow-y: auto;
 		align-items: start; /* Добавляем скроллинг для всей страницы */
-
 		aside {
 			width: 100%;
 			height: auto; /* Снимаем фиксированную высоту */
@@ -132,6 +131,7 @@
 			overflow-y: visible; /* Снимаем скроллинг внутри карточек */
 			margin-left: 0;
 			padding: 0;
+			height: auto;
 		}
 	}
 }
