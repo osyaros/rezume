@@ -61,7 +61,10 @@ jobs:
       
       - name: Debug Downloaded Files
         run: ls -la ./dist  # Проверяем, что файлы есть
-
+        
+      - name: Remove symlinks
+        run: find ./dist -type l -delete
+        
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
