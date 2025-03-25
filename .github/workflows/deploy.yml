@@ -40,10 +40,10 @@ jobs:
         run: mv CNAME dist/ || echo "No CNAME file found"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./dist
           name: dist-artifact
+          path: ./dist
   
   deploy:
     environment:
@@ -58,7 +58,7 @@ jobs:
           name: dist-artifact
           path: ./dist  # Разархивируем в dist
           pattern: dist-artifact-*
-
+      
       - name: Debug Downloaded Files
         run: ls -la ./dist  # Проверяем, что файлы есть
 
