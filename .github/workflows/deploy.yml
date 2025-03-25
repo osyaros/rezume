@@ -56,12 +56,12 @@ jobs:
         run: ls -la   # Проверяем, что файлы есть
 
       - name: Check artifact size
-        run: du -sh ./dist
+        run: du -sh .
       
       - name: Check for symlinks
-        run: find ./dist -type l
+        run: find . -type l
       - name: Remove symlinks
-        run: find ./dist -type l -delete
+        run: find . -type l -delete
         
       - name: Deploy to GitHub Pages
         id: deployment
