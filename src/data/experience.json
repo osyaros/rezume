@@ -144,7 +144,7 @@
                 "solveDescr": ""
             },
             {
-                "name": "Redux|RTK Query",
+                "name": "Redux&RTK Query",
                 "logo": "Doggers.png",
                 "url": "https://www.yandex.ru/",
                 "solveDescr": ""
@@ -162,13 +162,13 @@
                 "solveDescr": ""
             },
             {
-                "name": "Svelte|SvelteKit",
+                "name": "Svelte&SvelteKit",
                 "logo": "Doggers.png",
                 "url": "https://www.yandex.ru/",
                 "solveDescr": ""
             },
             {
-                "name": "MUI|Material UI",
+                "name": "MUI(Material UI)",
                 "logo": "Doggers.png",
                 "url": "https://www.yandex.ru/",
                 "solveDescr": ""
