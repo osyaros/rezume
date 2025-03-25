@@ -36,14 +36,18 @@ jobs:
       - name: Debug Build Output
         run: ls -la ./dist
 
-      - name: Copu CNAME after build
+      - name: Copy CNAME after build
         run: cp CNAME dist/ || echo "No CNAME file found"
+
+      # Copy dist to deploy to break hard links
+      - name: Prepare deployment directory
+        run: cp -r ./dist ./deploy
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: ./dist
+          path: ./deploy  # Upload the deploy directory instead of dist
   
   deploy:
     environment:
@@ -58,7 +62,7 @@ jobs:
           name: github-pages
           
       - name: Debug Downloaded Files
-        run: ls -la   # Проверяем, что файлы есть
+        run: ls -la
 
       - name: Check artifact size
         run: du -sh .
