@@ -78,7 +78,13 @@ jobs:
           find ./deploy-content -type l
           echo "Checking for hard links:"
           find ./deploy-content -type f -links +1
-
+          
+      - name: Prepare deployment directory
+        run: |
+          tar -cf dist.tar --hard-dereference ./dist
+          mkdir deploy
+          tar -xf dist.tar -C ./deploy
+          rm dist.tar
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
