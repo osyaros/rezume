@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
       - name: Debug Build Output
-        run: ls -la
+        run: ls -la ./dist
 
       - name: Move CNAME after build
         run: mv CNAME dist/ || echo "No CNAME file found"
