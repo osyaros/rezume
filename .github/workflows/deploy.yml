@@ -34,7 +34,7 @@ jobs:
         run: cp CNAME ./dist/CNAME  # Копируем файл CNAME в директорию dist
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
