@@ -36,8 +36,8 @@ jobs:
       - name: Debug Build Output
         run: ls -la ./dist
 
-      - name: Move CNAME after build
-        run: mv CNAME dist/ || echo "No CNAME file found"
+      - name: Copu CNAME after build
+        run: cp CNAME dist/ || echo "No CNAME file found"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
