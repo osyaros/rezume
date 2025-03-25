@@ -38,9 +38,6 @@ jobs:
 
       - name: Move CNAME after build
         run: mv CNAME dist/ || echo "No CNAME file found"
-        
-      - name: Copy CNAME to Build Directory
-        run: cp CNAME ./dist/CNAME  # Копируем файл CNAME в директорию dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
