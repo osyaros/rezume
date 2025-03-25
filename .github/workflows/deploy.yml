@@ -33,19 +33,31 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Debug Build Output
-        run: ls -la ./dist
+      # Улучшенная проверка структуры проекта
+      - name: Debug Project Structure
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+          echo "Dist directory contents:"
+          ls -la ./dist
 
       - name: Copy CNAME after build
-        run: cp CNAME dist/ || echo "No CNAME file found"
-
-      # Улучшенное копирование с разрывом всех ссылок
-      - name: Prepare clean deployment directory
         run: |
+          mkdir -p dist  # Создать dist, если его нет
+          cp CNAME dist/ || echo "No CNAME file found"
+
+      # Исправленное копирование с абсолютными путями
+      - name: Prepare deployment directory
+        run: |
+          echo "Creating dist.tar from: $(pwd)/dist"
+          tar -cf dist.tar --hard-dereference "$(pwd)/dist"
           mkdir -p deploy
-          find ./dist -type f -exec cp -P --parents "{}" ./deploy \;
-          echo "Checking links in deploy:"
-          find ./deploy -type l
+          tar -xf dist.tar -C deploy
+          rm dist.tar
+          echo "Deploy directory contents:"
+          ls -la deploy
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -69,22 +81,6 @@ jobs:
       - name: Debug Downloaded Files
         run: ls -la ./deploy-content
 
-      - name: Check artifact size
-        run: du -sh ./deploy-content
-      
-      - name: Validate file structure
-        run: |
-          echo "Checking for symlinks:"
-          find ./deploy-content -type l
-          echo "Checking for hard links:"
-          find ./deploy-content -type f -links +1
-          
-      - name: Prepare deployment directory
-        run: |
-          tar -cf dist.tar --hard-dereference ./dist
-          mkdir deploy
-          tar -xf dist.tar -C ./deploy
-          rm dist.tar
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
