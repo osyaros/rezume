@@ -51,24 +51,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    steps:
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: ./dist
-      
+    steps:      
       - name: Debug Downloaded Files
         run: ls -la   # Проверяем, что файлы есть
 
       - name: Check artifact size
         run: du -sh ./dist
-
-      - name: Clean up unnecessary files
-        run: |
-          rm -rf ./dist/node_modules
-          rm -rf ./dist/.git
-          rm -rf ./dist/.cache
       
       - name: Check for symlinks
         run: find ./dist -type l
