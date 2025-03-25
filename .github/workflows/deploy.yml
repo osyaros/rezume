@@ -59,7 +59,7 @@ jobs:
           path: ./dist
       
       - name: Debug Downloaded Files
-        run: ls -la ./dist  # Проверяем, что файлы есть
+        run: ls -la   # Проверяем, что файлы есть
 
       - name: Check artifact size
         run: du -sh ./dist
