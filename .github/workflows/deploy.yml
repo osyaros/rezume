@@ -53,10 +53,11 @@ jobs:
     needs: build
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist-artifact
           path: ./dist  # Разархивируем в dist
+          pattern: dist-artifact-*
 
       - name: Debug Downloaded Files
         run: ls -la ./dist  # Проверяем, что файлы есть
