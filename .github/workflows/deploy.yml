@@ -39,15 +39,19 @@ jobs:
       - name: Copy CNAME after build
         run: cp CNAME dist/ || echo "No CNAME file found"
 
-      # Copy dist to deploy to break hard links
-      - name: Prepare deployment directory
-        run: cp -r ./dist ./deploy
+      # Улучшенное копирование с разрывом всех ссылок
+      - name: Prepare clean deployment directory
+        run: |
+          mkdir -p deploy
+          find ./dist -type f -exec cp -P --parents "{}" ./deploy \;
+          echo "Checking links in deploy:"
+          find ./deploy -type l
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: ./deploy  # Upload the deploy directory instead of dist
+          path: ./deploy
   
   deploy:
     environment:
@@ -60,18 +64,21 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-pages
+          path: ./deploy-content
           
       - name: Debug Downloaded Files
-        run: ls -la
+        run: ls -la ./deploy-content
 
       - name: Check artifact size
-        run: du -sh .
+        run: du -sh ./deploy-content
       
-      - name: Check for symlinks
-        run: find . -type l
-      - name: Remove symlinks
-        run: find . -type l -delete
-        
+      - name: Validate file structure
+        run: |
+          echo "Checking for symlinks:"
+          find ./deploy-content -type l
+          echo "Checking for hard links:"
+          find ./deploy-content -type f -links +1
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
