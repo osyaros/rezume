@@ -1,86 +1,34 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # или другая ветка, из которой деплоить
+
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18"
-          cache: 'npm'
-        
-      - name: Clear npm cache
-        run: npm cache clean --force
-
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
 
       - name: Build project
-        run: npm run build
-
-      # Улучшенная проверка структуры проекта
-      - name: Debug Project Structure
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Directory contents:"
-          ls -la
-          echo "Dist directory contents:"
-          ls -la ./dist
-
-      - name: Copy CNAME after build
-        run: |
-          mkdir -p dist  # Создать dist, если его нет
-          cp CNAME dist/ || echo "No CNAME file found"
-
-      # Исправленное копирование с абсолютными путями
-      - name: Prepare deployment directory
-        run: |
-          echo "Creating dist.tar from: $(pwd)/dist"
-          tar -cf dist.tar --hard-dereference "$(pwd)/dist"
-          mkdir -p deploy
-          tar -xf dist.tar -C deploy
-          rm dist.tar
-          echo "Deploy directory contents:"
-          ls -la deploy
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: ./deploy
-  
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:     
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: ./deploy-content
-          
-      - name: Debug Downloaded Files
-        run: ls -la ./deploy-content
+          npm run build
 
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Ветка для GitHub Pages
+          folder: dist  # Папка с билдом (React по умолчанию билдит в build/)
+          cname: osokin-yaroslav.ru
