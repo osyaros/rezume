@@ -31,4 +31,3 @@ jobs:
         with:
           branch: gh-pages  # Ветка для GitHub Pages
           folder: dist  # Папка с билдом (React по умолчанию билдит в build/)
-          cname: osokin-yaroslav.ru
