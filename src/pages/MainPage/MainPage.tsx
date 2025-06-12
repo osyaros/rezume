@@ -35,8 +35,8 @@ export const MainPage: FC = () => {
 					<span>
 						<h3>Контакты</h3>
 					</span>
-					<a href="https://t.me/osyarik">
-						<h3>@osyarik</h3>
+					<a href="https://t.me/osyaros">
+						<h3>@osyaros</h3>
 					</a>
 					<p>
 						<a href="mailto:kinsoprod@yandex.ru">kinsoprod@yandex.ru</a>

@@ -158,6 +158,12 @@
 				"url": "https://www.yandex.ru/",
 				"solveDescr": ""
 			},
+            {
+                "name": "Vuex",
+                "logo": "Doggers.png",
+                "url": "https://www.yandex.ru/",
+                "solveDescr": ""
+            },
 			{
 				"name": "TypeScript",
 				"logo": "Doggers.png",
@@ -178,6 +184,12 @@
 			},
 			{
 				"name": "MUI(Material UI)",
+				"logo": "Doggers.png",
+				"url": "https://www.yandex.ru/",
+				"solveDescr": ""
+			},
+            {
+				"name": "Ant-Design",
 				"logo": "Doggers.png",
 				"url": "https://www.yandex.ru/",
 				"solveDescr": ""
