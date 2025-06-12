@@ -37,7 +37,7 @@ const DetailPage: FC = () => {
 				nameTheme = 'О компании';
 				themeDescr = experience.company_descr;
 				stack = experience.stack;
-				link = experience.url;
+				link = experience.url || '';
 			} else if (decodedCategory === 'projects' && 'position' in experience) {
 				text = experience.position || '';
 				nameTheme = 'О проекте';
