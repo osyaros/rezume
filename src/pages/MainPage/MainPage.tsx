@@ -39,7 +39,7 @@ export const MainPage: FC = () => {
 						<h3>@osyarik</h3>
 					</a>
 					<p>
-						<a href="mailto:osyaros.2005@yandex.ru">osyaros.2005@yandex.ru</a>
+						<a href="mailto:kinsoprod@yandex.ru">kinsoprod@yandex.ru</a>
 					</p>
 				</div>
 			</aside>
