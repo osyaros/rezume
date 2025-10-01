@@ -1,0 +1,21 @@
+{
+  "name": "Ярослав Осокин - Frontend Developer",
+  "short_name": "Ярослав Осокин",
+  "description": "Портфолио Frontend разработчика с опытом работы в React, Vue, Svelte",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090021",
+  "theme_color": "#090021",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "frontend"],
+  "lang": "ru",
+  "dir": "ltr"
+}
