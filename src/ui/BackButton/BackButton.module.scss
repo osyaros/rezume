@@ -12,6 +12,15 @@
 	border-radius: 75px;
 	background: rgba(255, 255, 255, 0.1);
 	transition: all 1s ease; /* Плавный переход для всех свойств */
+	border: none;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .backBtn:hover {
@@ -20,9 +29,26 @@
 	margin-left: -35px; /* Сдвиг влево для достижения нужного эффекта */
 	justify-content: start; /* Содержимое по левому краю */
 }
-@media only screen and (max-width: 480px){
-	.backBtn{
-		display:none;
+@media only screen and (max-width: 480px) {
+	.backBtn {
+		position: static;
+		z-index: 1000;
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
-	
+
+	.backBtn:hover {
+		position: static;
+		width: 60px;
+		margin-left: 0;
+		background: rgba(255, 255, 255, 0.3);
+	}
 }

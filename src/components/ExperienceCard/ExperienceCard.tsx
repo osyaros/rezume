@@ -47,15 +47,35 @@ const ExperienceCard: FC<ExperienceCardProps> = ({ type, name }) => {
     setBadgeText(badges); 
   }, [type, name, navigate]);
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <article className={cls.expCard} onClick={handleClick}>
+    <article 
+      className={cls.expCard} 
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`${name}: ${subText}`}
+    >
       <div className={cls.expCard__img}>
-        <img src={`/img/experience/${type}/${name}/main.png`} alt={`${name} image`} />
+        <img 
+          src={`/img/experience/${type}/${name}/main.png`} 
+          alt={`Изображение проекта ${name}`}
+          width="300"
+          height="200"
+          loading="lazy"
+        />
       </div>
       <div className={cls.expCard__info}>
         <h3>{name}</h3>
-        <span>{subText}</span>
-        <div className={cls.badges}>
+        <p>{subText}</p>
+        <div className={cls.badges} role="list" aria-label="Технологии">
           {badgeText.length > 0 && badgeText.map((badge, index) => (
             <Badge key={index} text={badge} />
           ))}

@@ -13,7 +13,7 @@ const Badge: React.FC<Props> = (props) => {
     
     return (
         props.href ? (
-            <a className={classNames} href={props.href}>{props.text}</a>
+            <a className={classNames} href={props.href} target='_blank'>{props.text}</a>
         ) : (
             <div className={classNames}>{props.text}</div>
         )
